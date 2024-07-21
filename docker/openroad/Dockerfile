@@ -65,7 +65,7 @@ RUN curl -L https://github.com/google/or-tools/archive/refs/tags/v9.5.tar.gz | t
     cmake --build build -j $(nproc) --target install
 
 WORKDIR /openroad
-RUN  yum config-manager --set-enabled powertools && yum update
+RUN  yum config-manager --set-enabled powertools && yum update -y
 RUN yum install -y doxygen
 
 # ToDo: submodules lose their correct versions if done via archive -> OpenLane uses util.py, copy?

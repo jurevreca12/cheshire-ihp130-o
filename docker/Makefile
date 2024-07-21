@@ -9,8 +9,8 @@
 # directory of the path to the last called Makefile (this one)
 DOCKER_DIR 		:= $(realpath $(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
 
-IMG_NAME = phsauter/pulp-iguana
-IMG_TAG = dev
+IMG_NAME = jurev/pulp-iguana
+IMG_TAG = 1.0
 
 pull:
 	docker pull $(IMG_NAME):$(IMG_TAG)

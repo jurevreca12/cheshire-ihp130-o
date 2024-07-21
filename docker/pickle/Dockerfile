@@ -20,7 +20,7 @@ ARG SV2V_COMMIT=v0.0.11
 
 # install packages
 COPY packages.txt /packages.txt
-RUN yum install -y $(cat /packages.txt)
+RUN yum install -y $(cat /packages.txt) 
 # install rust cargo (morty)
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 ENV PATH="/root/.cargo/bin:$PATH"
@@ -40,7 +40,7 @@ RUN curl -L ${MORTY_REPO}/archive/${MORTY_COMMIT}.tar.gz | tar -xzC . --strip-co
 WORKDIR /svase
 RUN git clone ${SVASE_REPO}.git . && git checkout ${SVASE_COMMIT} && \
     git submodule update --init --recursive && \
-    export CXX=clang++-16 && \
+    export CXX=clang++ && \
     make -j && \
     cp build/svase /build/bin/svase
 
